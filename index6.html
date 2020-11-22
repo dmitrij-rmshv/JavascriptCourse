@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Задача 6</title>
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+    <h1>Задача 6.</h1>
+    <p>Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation),
+        где arg1, arg2 – значения аргументов, operation – строка с названием операции.
+        В зависимости от переданного значения операции выполнить одну из арифметических операций
+        (использовать функции из пункта 3) и вернуть полученное значение (использовать switch).</p>
+
+    <script>
+
+        function mathOperation(arg1, arg2, operation) {
+            switch (operation) {
+                case '+':
+                    return arg1 + arg2;
+                    break;
+                case '-':
+                    return arg1 - arg2;
+                    break;
+                case '*':
+                    return arg1 * arg2;
+                    break;
+                case '/':
+                    return arg1 / arg2;
+                    break;
+                default:
+                    return "Неверная операция!"
+            }
+        }
+
+        alert(mathOperation(13, 7, '/'))
+
+    </script>
+</body>
+
+</html>
