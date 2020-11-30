@@ -9,36 +9,42 @@
 
 <body>
     <h1>Задача 2.</h1>
-    <p>2. С этого урока начинаем работать с функционалом интернет-магазина. Предположим, есть сущность корзины. Нужно
-        реализовать функционал подсчета стоимости корзины в зависимости от находящихся в ней товаров.</p>
-    <p>3. Товары в корзине хранятся в массиве. Задачи:</p>
-    <p>a) Организовать такой массив для хранения товаров в корзине;</p>
-    <p>b) Организовать функцию countBasketPrice, которая будет считать стоимость корзины.</p>
+    <p>2. Продолжить работу с интернет-магазином:</p>
+    <p>В прошлом домашнем задании вы реализовали корзину на базе массивов. Какими объектами можно заменить их элементы?</p>
+    <p>Реализуйте такие объекты.</p>
+    <p>Перенести функционал подсчета корзины на объектно-ориентированную базу.</p>
 
     <script>
 
         var basket = {
             item1: [{ name: "awl", unit: "piece", price: 119.99 }, 1],  // крайнее число - количество товара, вынес его отдельно,
             item2: [{ name: "soap", unit: "piece", price: 37.50 }, 2],  // так как предполагаю их разное происхождение:
-            item3: [{ name: "nails", unit: "kilo", price: 487.00 }, 0.5]  // хар-ки - из БД магазина, а кол-во - из пожеланий покупателя
-        };
+            item3: [{ name: "nails", unit: "kilo", price: 487.00 }, 0.5],  // хар-ки - из БД магазина, а кол-во - из пожеланий покупателя
+            countBasketPrice: function() {
+            	let total_price = 0;
+                total_price = this.item1[0].price * this.item1[1] + this.item2[0].price * this.item2[1] + this.item3[0].price * this.item3[1];
+            	return total_price;
+            }
+        }
 
         document.write("Состав корзины:<br>")
-        for (var itm in basket) {
-            document.write(basket[itm][0].name + ", " + basket[itm][1] + " " + basket[itm][0].unit + "(s)  for " + basket[itm][0].price + "₽ each<br>")
-        }
 
-        function countBasketPrice(basket) {
-            let total_price = 0;
-            for (var items in basket) {
-                total_price += basket[items][0].price * basket[items][1];
-            }
-            return total_price;
-        }
+        document.write(basket.item1[0].name + ", " + basket.item1[1] + " " + basket.item1[0].unit + "(s)  for " + basket.item1[0].price + "₽ each<br>")
+        document.write(basket.item2[0].name + ", " + basket.item2[1] + " " + basket.item2[0].unit + "(s)  for " + basket.item2[0].price + "₽ each<br>")
+        document.write(basket.item3[0].name + ", " + basket.item3[1] + " " + basket.item3[0].unit + "(s)  for " + basket.item3[0].price + "₽ each<br>")
 
-        document.write("стоимость корзины: " + countBasketPrice(basket) + "₽")
+        document.write("стоимость корзины: " + basket.countBasketPrice() + "₽")
 
     </script>
 </body>
 
 </html>
+
+<!-- Я изначально (в прошлом ДЗ) реализовал применение объектов. 
+Теперь же решил усугубить это переносом в состав объекта корзины функции её подсчёта.
+При этом возникла сложность в автономном (с помощью цикла) преборе элементов корзины (item1, item2, item3). 
+Пришлось вручную их перебрать,что видно в строках 25 и 32-34.
+Подскажите пожалуйста способ, как всё же загнать этот подсчёт назад в цикл. 
+У меня мысль складывать элементы корзины по условию, например, что ключ начинается на 'item' 
+Подозреваю, что такое наверно можно с помощью регулярных выражений, но как именно?
+ -->
