@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+.whole_board {
+  width: 580px;
+  height: 580px;
+  background-color: #ccc;
+  
+}
+
+.board64 {
+  width: 560px;
+  display: inline-block;
+}
+
+.line {
+  
+}
+
+.white_field {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  background-color: white;
+}
+
+.black_field {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  background-color: black;
+}
+
+.letter_line {
+  height: 18px;
+}
+
+.letter {
+  width: 64px;
+  display: inline-block;
+  text-align: center;
+}
+
+.num_col {
+  width: 20px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+._ {
+  height: 44px;
+}
+
+.number {
+  height: 68px;
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  text-align: center;
+}

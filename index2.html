@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Задача 2</title>
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+    <h1>Задача 2.</h1>
+    <p>Сделать генерацию корзины динамической: верстка корзины не должна находиться в HTML-структуре.
+        Там должен быть только div, в который будет вставляться корзина, сгенерированная на базе JS:
+    </p>
+    <p>a) Пустая корзина должна выводить строку «Корзина пуста»;</p>
+    <p>b) Наполненная должна выводить «В корзине: n товаров на сумму m рублей».</p>
+
+    <div id='basket'></div>
+
+    <script>
+        var basket = {
+            item1: [{ name: "awl", unit: "piece", price: 119.99 }, 1],
+            item2: [{ name: "soap", unit: "piece", price: 37.50 }, 2],
+            item3: [{ name: "nails", unit: "kilo", price: 487.00 }, 0.5]
+        };
+
+        function countBasketPrice(basket) {
+            let total_price = 0;
+            for (var items in basket) {
+                total_price += basket[items][0].price * basket[items][1];
+            }
+            return total_price;
+        }
+
+        function countBasketItems(basket) {
+            return Object.keys(basket).length;
+        }
+
+        document.getElementById('basket').style.background = 'yellow';
+
+        var basket_obj = document.createElement('p')
+
+        if (countBasketItems(basket)) {
+            basket_obj = "В корзине: " + countBasketItems(basket) + " товаров на сумму " + countBasketPrice(basket) + " рублей";
+        } else {
+            basket_obj = "Корзина пуста";
+        }
+
+        document.getElementById('basket').append(basket_obj);
+    </script>
+
+</body>
+
+</html>
