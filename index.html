@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Задача 1</title>
+</head>
+
+<body>
+    <h1>Задача 1.</h1>
+    <p>Продолжаем реализовывать модуль корзины:</p>
+    <p>Добавлять в объект корзины выбранные товары по клику на кнопке «Купить» без перезагрузки страницы;</p>
+    <p>Привязать к событию покупки товара пересчет корзины и обновление ее внешнего вида.</p>
+
+    <div id="catalog">
+        <h1>Каталог</h1>
+    </div>
+    <div id='basket'>
+        <h2>Корзина</h2>
+    </div>
+
+    <script>
+
+        var product = [
+            { name: "Awl", unit: "piece", price: 119.99 },
+            { name: "Soap", unit: "piece", price: 37.50 },
+            { name: "Nails", unit: "kilo", price: 487.00 }
+        ];
+
+        var basket = {};
+
+        function ctlg_draw() {
+            var catalogue = document.getElementById('catalog');
+            catalogue.style.border = '2px solid grey';
+
+            let i = 0;
+            for (ctlg_items of product) {
+                good_card = document.createElement('div');
+                good_card.style.width = '30%';
+                good_card.style.display = 'inline-block';
+                good_card.style.border = '1px solid green';
+                good_card.style.margin = '4px';
+                var header = document.createElement('h3');
+                var price = document.createElement('h5');
+                price.innerHTML = 'price: ' + ctlg_items.price + '₽';
+                var buy_btn = document.createElement('button');
+                buy_btn.innerText = 'BUY';
+                buy_btn.setAttribute('id', i);
+                good_card.append(header);
+                good_card.append(price);
+                good_card.append(buy_btn);
+                header.append(ctlg_items.name);
+                catalogue.appendChild(good_card);
+                i++;
+            }
+        }
+
+        function countBasketPrice(basket) {
+            let total_price = 0;
+            for (var items in basket) {
+                total_price += basket[items][0].price * basket[items][1];
+            }
+            return total_price;
+        }
+
+        function countBasketItems(basket) {
+            let item_nums = 0;
+            for (var items in basket) {
+                item_nums += basket[items][1];
+            }
+            return item_nums;
+        }
+
+        document.getElementById('basket').style.background = 'yellow';
+        var basket_content = document.createElement('p')
+        basket_content.setAttribute('id', 'basket_content');
+        document.getElementById('basket').append(basket_content);
+        if (countBasketItems(basket)) {
+            basket_content.innerHTML = "В корзине: " + countBasketItems(basket) + " товаров на сумму " + countBasketPrice(basket) + " рублей";
+        } else {
+            basket_content.innerHTML = "Корзина пуста";
+        }
+
+        function basket_redraw(eventObj) {
+            var eventElement = eventObj.target;
+            if (basket[product[eventObj.target.id].name]) {
+                basket[product[eventObj.target.id].name][1] += 1;
+            } else {
+                basket[product[eventObj.target.id].name] = [product[eventObj.target.id], 1];
+            }
+
+            if (countBasketItems(basket)) {
+                new_content = "В корзине: " + countBasketItems(basket) + " товаров на сумму " + countBasketPrice(basket) + " рублей";
+            } else {
+                new_content = "Корзина пуста";
+            }
+
+            document.getElementById('basket_content').innerText = new_content;
+
+        }
+
+        ctlg_draw();
+
+        var buttons = document.getElementsByTagName("button");
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].onclick = basket_redraw;
+        }
+
+    </script>
+
+</body>
+
+</html>
