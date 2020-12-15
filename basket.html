@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Корзина</title>
+</head>
+
+<body>
+    <h1>Задача 1,2.</h1>
+    <p>Реализовать страницу корзины:</p>
+    <ul>
+        <li>Добавить возможность не только смотреть состав корзины, но и редактировать его, обновляя общую стоимость или
+            выводя сообщение «Корзина пуста».</li>
+    </ul>
+
+    <p>На странице корзины:</p>
+    <ul>
+        <li>Сделать отдельные блоки «Состав корзины», «Адрес доставки», «Комментарий»;</li>
+        <li>Сделать эти поля сворачиваемыми;</li>
+        <li>Заполнять поля по очереди, то есть давать посмотреть состав корзины, внизу которого есть кнопка «Далее».
+            Если
+            нажать ее, сворачивается «Состав корзины» и открывается «Адрес доставки» и так далее.</li>
+    </ul>
+
+
+    <div id='basket'>
+        <h2>Состав корзины</h2>
+    </div>
+    <button id='next'>Далее</button>
+
+    <script src="main.js"></script>
+    <script>
+        let basket = JSON.parse(sessionStorage.getItem('key'));
+
+        var basket_ed = document.createElement('div');
+        basket_ed.setAttribute('id', 'edit');
+        basket_ed.style.border = "2px solid blue";
+        basket_edit();
+
+        document.getElementById('next').onclick = next_step;
+    </script>
+
+</body>
+
+</html>

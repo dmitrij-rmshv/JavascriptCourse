@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Каталог</title>
+</head>
+
+<body>
+    <h1>Задача 1,2.</h1>
+    <p>Реализовать страницу корзины:</p>
+    <ul>
+        <li>Добавить возможность не только смотреть состав корзины, но и редактировать его, обновляя общую стоимость или
+            выводя сообщение «Корзина пуста».</li>
+    </ul>
+
+    <p>На странице корзины:</p>
+    <ul>
+        <li>Сделать отдельные блоки «Состав корзины», «Адрес доставки», «Комментарий»;</li>
+        <li>Сделать эти поля сворачиваемыми;</li>
+        <li>Заполнять поля по очереди, то есть давать посмотреть состав корзины, внизу которого есть кнопка «Далее».
+            Если
+            нажать ее, сворачивается «Состав корзины» и открывается «Адрес доставки» и так далее.</li>
+    </ul>
+
+
+    <div id="catalog">
+        <h1>Каталог</h1>
+    </div>
+    <div id='basket'>
+        <a href="basket.html" id="basket_link">
+            <h2>Корзина</h2>
+        </a>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        var basket = {};
+
+        document.getElementById('basket').style.background = 'yellow';
+        var basket_content = document.createElement('p')
+        basket_content.setAttribute('id', 'basket_content');
+        document.getElementById('basket').append(basket_content);
+        if (countBasketItems(basket)) {
+            basket_content.innerHTML = "В корзине: " + countBasketItems(basket) + " товаров на сумму " + countBasketPrice(basket) + " рублей";
+        } else {
+            basket_content.innerHTML = "Корзина пуста";
+        }
+
+        ctlg_draw();
+
+        var buttons = document.getElementsByTagName("button");
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].onclick = basket_redraw;
+        }
+
+    </script>
+
+</body>
+
+</html>
