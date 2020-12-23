@@ -40,11 +40,34 @@ body {
     background: #5A98D0;
     box-shadow: 5px 10px 20px rgba(53, 110, 173, 0.2);
     border-radius: 10px;
-    padding: 15px 50px;
+    padding: 5px 10px;
     text-decoration: none;
     display: inline-block;
     margin-top: 11px;
 }
+
+.products {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-top: 64px;
+    margin-bottom: 32px;
+}
+
+.product-item {
+    width: 359px;
+    padding: 44px 32px;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    box-shadow: 5px 20px 50px rgba(16, 112, 177, 0.2);
+    border-radius: 10px;
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* далее идёт рыба из курса вёрстки для возможного применения позже */
 
 .page_title {
     padding-top: 15px;
