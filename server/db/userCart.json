@@ -1,0 +1,24 @@
+{
+    "amount": 46600,
+    "countGoods": 2,
+    "contents": [
+        {
+            "id_product": 124,
+            "product_name": "Огурцы",
+            "price": 16,
+            "quantity": 1
+        },
+        {
+            "id_product": 457,
+            "product_name": "Томаты",
+            "price": 30,
+            "quantity": 2
+        },
+        {
+            "id_product": 123,
+            "product_name": "Зелень",
+            "price": 45,
+            "quantity": 1
+        }
+    ]
+}
