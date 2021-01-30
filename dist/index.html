@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Интернет-магазин</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/veg_style.css">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <div class="outer_header">
+                <div class="inner_header">
+                    <div class="main_menu">
+                        <a href="index.html"><img src="img/logo.svg" alt="logo"></a>
+                        <a href="contacts.html"><img src="img/contacts.svg" alt="contacts"></a>
+
+                        <!--startadd-->
+                        <div class="cart">
+                            <filter-el></filter-el>
+                            <cart ref="cart"></cart>
+                        </div>
+                        <!--end-add-->
+
+
+                    </div>
+                    <div class="page_title">
+                        <h1 class="top_heading">Совхоз "Детскосельский"</h1>
+                        <p class="paragraph under_h1_text">New Vegetables for Your </p>
+                    </div>
+                    <a href="#project" class="top_button">See Our Project</a>
+                </div>
+            </div>
+
+        </header>
+        <main>
+            <error ref="error"></error>
+            <div class="container">
+                <div class="what_we_do">
+                    <h3 class="third_heading">Что мы выращиваем для наших клиентов:</h3>
+                    <div class="doing_list">
+                        <products ref="products"></products>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+
+        <!--подвал-->
+        <div class="outer_footer">
+            <div class="inner_footer1">
+                <div class="interested">
+                    <h3 class="third_heading footer_header">Заинтересовались нашими овощами?</h3>
+                    <p class="paragraph footer_text">Мы будем рады, если вы свяжитесь с нами любым удобным способом.</p>
+                </div>
+                <a href="bootstrap.html" class="talk_button">Let’s Talk</a>
+            </div>
+            <hr class="footer_divider">
+            <div class="inner_footer2">
+                <ul class="contact_list">
+                    <li>
+                        <div class="contact__letter">A.</div>
+                        <div class="contact__item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+                    </li>
+                    <li>
+                        <div class="contact__letter">T.</div>
+                        <div class="contact__item">+7(981) 123-45-23</div>
+                    </li>
+                    <li>
+                        <div class="contact__letter">E.</div>
+                        <div class="contact__item">example@mail.com</div>
+                    </li>
+                </ul>
+                <div>
+                    <p class="paragraph all_right">Все права защищены</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+        integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="build.js"></script>
+</body>
+
+</html>
